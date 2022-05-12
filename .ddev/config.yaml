@@ -1,0 +1,26 @@
+##
+# conjoon
+# ddev-ms-email
+# Copyright (C) 2022 Thorsten Suckow-Homberg https://github.com/conjoon/ddev-ms-email
+##
+name: ddev-ms-email
+type: laravel
+docroot: vendor/conjoon/lumen-app-email/app/public
+php_version: "7.4"
+webserver_type: nginx-fpm
+router_http_port: "80"
+router_https_port: "443"
+xdebug_enabled: false
+additional_hostnames: []
+additional_fqdns: []
+mariadb_version: "10.3"
+mysql_version: ""
+use_dns_when_possible: true
+composer_version: "2"
+web_environment: []
+omit_containers: [db, dba]
+nfs_mount_enabled: false
+timezone: UTC
+hooks:
+  post-start:
+    - exec: composer install --prefer-source -d /var/www/html

@@ -1,0 +1,26 @@
+{
+    "name": "conjoon/ddev-ms-email",
+    "description": "DDEV/Docker configuration for serving conjoon/lumen-app-email microservice",
+    "license": "MIT",
+    "type": "project",
+    "repositories": [
+        {"url": "https://horde-satis.maintaina.com", "type": "composer"}
+    ],
+    "require": {
+        "php": ">=7.4",
+        "conjoon/lumen-app-email": "dev-main"
+    },
+    "authors": [
+        {
+            "name": "Thorsten Suckow-Homberg",
+            "email": "thorsten@suckow-homberg.de"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "allow-plugins": {
+            "horde/horde-installer-plugin": false
+        }
+    }
+}

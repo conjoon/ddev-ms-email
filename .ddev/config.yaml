@@ -5,7 +5,7 @@
 ##
 name: ddev-ms-email
 type: laravel
-docroot: lumen-app-email/app/public
+docroot: app/public
 php_version: "7.4"
 webserver_type: nginx-fpm
 router_http_port: "80"
@@ -24,5 +24,7 @@ timezone: UTC
 hooks:
   post-start:
     - exec: composer install --prefer-source -d /var/www/html
-    - exec: rm -rf /var/www/html/lumen-app-email || true
-    - exec: cp /var/www/html/vendor/conjoon/lumen-app-email /var/www/html/lumen-app-email -R
+    - exec: rm -rf /var/www/html/app || true
+    - exec: rm -rf /var/www/html/lib || true
+    - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/app /var/www/html/app -R
+    - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/lib /var/www/html/lib -R

@@ -28,3 +28,5 @@ hooks:
     - exec: rm -rf /var/www/html/lib || true
     - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/app /var/www/html/app -R
     - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/lib /var/www/html/lib -R
+    - exec: cp /var/www/html/app/config/imapserver.php.example /var/www/html/app/config/imapserver.php
+    - exec: cp /var/www/html/app/config/cors.php.example /var/www/html/app/config/cors.php

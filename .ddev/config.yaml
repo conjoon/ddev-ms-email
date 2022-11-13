@@ -5,13 +5,13 @@
 ##
 name: ddev-ms-email
 type: laravel
-docroot: app/public
+docroot: lumen-app-email/app/public
 php_version: "7.4"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
 xdebug_enabled: false
-additional_hostnames: []
+additional_hostnames: ["conjoon"]
 additional_fqdns: []
 mariadb_version: "10.3"
 mysql_version: ""
@@ -23,10 +23,4 @@ nfs_mount_enabled: false
 timezone: UTC
 hooks:
   post-start:
-    - exec: composer install --prefer-source -d /var/www/html
-    - exec: rm -rf /var/www/html/app || true
-    - exec: rm -rf /var/www/html/lib || true
-    - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/app /var/www/html/app -R
-    - exec: cp /var/www/html/vendor/conjoon/lumen-app-email/lib /var/www/html/lib -R
-    - exec: cp /var/www/html/app/config/imapserver.php.example /var/www/html/app/config/imapserver.php
-    - exec: cp /var/www/html/app/config/cors.php.example /var/www/html/app/config/cors.php
+    - exec: test -d lumen-app-email && echo "✅ lumen-app-email already exists, no installation necessary." || composer create-project -s dev conjoon/lumen-app-email lumen-app-email "1.*"

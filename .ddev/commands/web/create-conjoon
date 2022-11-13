@@ -1,0 +1,23 @@
+#!/bin/bash
+## Description: creates a conjoon installation for the web container
+## Usage: create-conjoon
+## Example: "create-conjoon"
+## ProjectTypes: laravel
+## ExecRaw: true
+## HostWorkingDir: true
+
+echo ""
+echo "This will run \"npm create-conjoon\" and place the installation in htdocs/conjoon"
+echo "conjoon will then be available at https://conjoon.ddev.site"
+echo "⚠️Warning: This will overwrite any existing installation of conjoon!"
+read -p "Do you wish to continue? [y/n] " -n 1 -r
+echo ""
+if [[ $REPLY =~ ^[Yy]$ ]] ; then
+    rm /var/www/html/conjoon -R
+    npx create-conjoon@latest
+    if test -d /var/www/html/htdocs/conjoon ; then
+      rm /var/www/html/htdocs/conjoon -R
+    fi
+      mkdir /var/www/html/htdocs/conjoon
+      cp /var/www/html/conjoon/build/production/conjoon /var/www/html/htdocs -R
+fi

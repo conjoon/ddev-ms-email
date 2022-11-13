@@ -1,3 +1,4 @@
-/vendor
-/app
-/lib
+/htdocs
+.idea
+/conjoon
+/lumen-app-email

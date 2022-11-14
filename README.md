@@ -89,7 +89,7 @@ and follow the instructions on screen.
 
 
 ### DDEV Configuration
-DDEV-configuration can be found in [./ddev/config.yaml](./ddev/config.yaml). 
+DDEV-configuration can be found in `./ddev/config.yaml`. 
 Adjust to your needs.
 
 
